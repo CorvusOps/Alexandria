@@ -1,0 +1,23 @@
+{
+  "name": "alexandria",
+  "version": "1.0.0",
+  "description": "Automated Book Categorization, Labeling, and Classification base on Synopsis/Abstract/Book Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kibalias/Alexandria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kibalias/Alexandria/issues"
+  },
+  "homepage": "https://github.com/kibalias/Alexandria#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.0-alpha3"
+  }
+}

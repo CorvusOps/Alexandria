@@ -1,1 +1,33 @@
 
+.login-body{
+    background-color: #CDECE1;
+}
+.login-left{
+    background-image:  url("../../img/login-left-div.png");
+    background-size: 100% 100%;
+}
+
+.login-right{
+    background-color: #EFEFEF;
+}
+
+.center{
+    padding-top: 6%;
+    padding-bottom: 20%;
+    height: 100vh;
+}
+
+.signin-form{
+    margin-top: 4rem;
+}
+.signin-btn{
+    background-color: #187872;
+}
+.signin-btn:hover{
+    background-color: #10504C;
+
+}
+
+.form-rounded{
+    border-radius: 1rem;
+}
