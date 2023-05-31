@@ -6,6 +6,11 @@
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/utilities";
 
+
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca');
+
+$font-family-sans-serif: "Lexend Deca";
+
 $all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
 
 $utilities: map-merge(

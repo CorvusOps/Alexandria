@@ -2,30 +2,41 @@
 .login-body{
     background-color: #CDECE1;
 }
-.login-left{
+.login-left, .signup-left{
     background-image:  url("../../img/login-left-div.png");
     background-size: 100% 100%;
 }
 
-.login-right{
+.login-right, .signup-right{
     background-color: #EFEFEF;
 }
 
-.center{
+.center-body{
     padding-top: 6%;
     padding-bottom: 20%;
     height: 100vh;
 }
-
+.app-title{
+    font-family: "Lexend Deca";
+}
+.app-title .heading{
+    font-weight: 800;
+}
 .signin-form{
     margin-top: 4rem;
+}
+.form-control {
+    background-color: #D9D9D9;
+}
+.signup-form{
+    margin-top: 2rem;
 }
 .signin-btn{
     background-color: #187872;
 }
+
 .signin-btn:hover{
     background-color: #10504C;
-
 }
 
 .form-rounded{
