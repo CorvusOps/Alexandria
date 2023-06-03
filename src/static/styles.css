@@ -16,7 +16,7 @@
     padding-bottom: 20%;
     height: 100vh;
 }
-.app-title{
+.app-title, .title{
     font-family: "Lexend Deca";
 }
 .app-title .heading{
