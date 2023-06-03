@@ -31,11 +31,11 @@
 .signup-form{
     margin-top: 2rem;
 }
-.signin-btn{
+.signin-btn, .genre-btn{
     background-color: #187872;
 }
 
-.signin-btn:hover{
+.signin-btn:hover, .genre-btn:hover{
     background-color: #10504C;
 }
 
