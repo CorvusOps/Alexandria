@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Alexandria: Home</title>
+    </head>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="sidenavbar col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    
+                    <div class="titleblock d-flex flex-row justify-content-center gap-2 mt-5">
+
+                        <div class="appicon col-auto col-px-3 px-1">
+                            <iconify-icon icon="fa6-solid:book-open-reader" style="color: #0D4040;" width="36" height="36"></iconify-icon>
+                        </div>
+                        <div class="app-title col flex-column" style = "color: #0D4040">
+                            
+                            <h4 class="heading flex-row justify-content-center text-uppercase mb-0 font-weight-bold fs-5 d-none d-sm-inline ">
+                                Alexandria
+                            </h4>
+                            <br/>
+                            <h6 class = "heading flex-row ms-1 d-none d-sm-inline" style="font-size: 9px;">
+                                Book Keeping and Inventory
+                            </h6>
+                           
+                        </div>
+                    </div>
+
+
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item flex-row py-2 px-1 ms-1">
+                            <a href="#" class="nav-link align-middle px-0">
+                                <iconify-icon class = "flex-column align-middle" icon="iconamoon:home-light" style="color: #0D4040;" width="30" height="30"></iconify-icon>
+                                <span class="flex-column ms-1 d-none d-sm-inline align-middle">Home</span>
+                                
+                            </a>
+                        </li>
+
+                        <li class = "nav-item flex-row py-2 px-1 ms-1">
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <iconify-icon class = "flex-column align-middle" icon="tabler:book" style="color: #0D4040;" width="30" height="30"></iconify-icon>
+                                <span class="ms-1 d-none d-sm-inline align-middle">Books</span>
+                            </a>
+                        </li>
+
+                        <li class = "nav-item flex-row py-2 px-1 ms-1">
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <iconify-icon class = "flex-column align-middle" icon= "tabler:brand-google-analytics" style="color: #0D4040;" width="30" height="30"></iconify-icon>
+                                <span class="ms-1 d-none d-sm-inline">Analytics</span></a>
+                        </li>
+
+                        <li class = "nav-item flex-row py-2 px-1 ms-1">
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                <iconify-icon class = "flex-column align-middle" icon="fluent:book-pulse-24-filled" style="color: #0D4040;" width="30" height="30"></iconify-icon>
+                                <span class="ms-1 d-none d-sm-inline">Genre Checker</span></a>
+                        </li>
+                       
+                    </ul>
+
+                    <hr>
+
+                </div>
+            </div>
+
+            <div class="content col py-3">
+                <div class = "header row p-2 mx-2 my-4 ">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">
+                            <iconify-icon icon="prime:search" style="color: #004541;" width = "26" height = "26"></iconify-icon>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Search book title..." aria-label="searchbar" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class = "content row px-2 py-3 mx-2 my-1">
+                    <h3>Left Sidebar with Submenus</h3>
+                <p class="lead">
+                    An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single 
+                    menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
+                <ul class="list-unstyled">
+                    <li><h5>Responsive</h5> shrinks in width, hides text labels and collapses to icons only on mobile</li>
+                </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+<script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+</html>
