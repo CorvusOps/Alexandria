@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../main.css">
         <link rel="stylesheet" href="../static/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
         <title>Alexandria: Analytics</title>
     </head>
 
@@ -41,7 +42,34 @@
                     <p class="text-center">Add explanation</p>
                 </div>
                 
-                
+                <div class="charts row">
+                    <div class="horror-chart col">
+                        <canvas id="horrorChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+
+                <div class="charts row">
+                    <div class="science-chart col">
+                        <canvas id="scienceChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+
+                <div class="charts row">
+                    <div class="thriller-chart col">
+                        <canvas id="thrillerChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+
+                <div class="note row">
+                    <div class="note col bg-red-200 rounded-2 mx-5">
+                        <p class="fst-italic fs-6 m-2">
+                           <strong class="fs-5 text-red-600">Note:</strong>  The terms above <strong>may not be a representation for ALL existing fantasy, history, horror, science, and thriller books </strong>. The terms above are JUST the most frequent and relevant terms from the 2500 books included in the dataset. New terms may be added and values of the listed terms' frequency (TF) and relevance (IDF) may change when more data are added.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
