@@ -27,10 +27,27 @@
                     <br> Checkout the compiled dataset in Kaggle. Link <a class="text-yellow-400" href="https://www.kaggle.com/datasets/athu1105/tagmybook">here</a>.</p>
                 </div>
                 
+                <div class="charts row mb-5">
+                    <div class="fantasy-chart col" style="height: 60vh;">
+                        <canvas id="fantasyChart"></canvas>
+                        <p class="text-center">Add explanation</p>
+                    </div>
+                </div>
+
+                <div class="charts row">
+                    <div class="history-chart col">
+                        <canvas id="historyChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+                
+                
             </div>
         </div>
     </div>
-    <script src="../controllers/sidebar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../controllers/sidebar.js"></script>
+<script src="../controllers/charts.js"></script>
 <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 </html>
