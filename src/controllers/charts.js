@@ -1,179 +1,253 @@
-const fantasy_chart = document.getElementById('fantasyChart');
-new Chart(fantasy_chart, {
-    type: 'bar',
-    data: {
-      labels: ['jason',
-        'piper',
-        'hera',
-        'thalia',
-        'leo',
-        'percy',
-        'trio',
-        'demigod',
-        'aeolus',
-        'francisco',
-        'zeus',
-        'gaea',
-        'san',
-        'roman',
-        'camp',
-        'giant',
-        'hunter',
-        'jackson',
-        'coach',
-        'fight',
-        'hedge',
-        'annabeth',
-        'aphrodite',
-        'shoe',
-        'spirit',
-        'thanks',
-        'rush',
-        'goddess',
-        'trip',
-        'son',
-        'wolf',
-        'hero',
-        'storm',
-        'turn',
-        'manage',
-        'quest',
-        'mellie',
-        'valdez',
-        'mclean',
-        'enceladus'
-        ],
-      datasets: [{
-        label: 'TF-IDF Value',
-        data: [0.543557269,
-            0.297314653,
-            0.26498282,
-            0.231714776,
-            0.176655213,
-            0.159699165,
-            0.14094262,
-            0.139028865,
-            0.139028865,
-            0.139028865,
-            0.139028865,
-            0.13249141,
-            0.13249141,
-            0.119774374,
-            0.102653452,
-            0.102001826,
-            0.099610778,
-            0.098828594,
-            0.098828594,
-            0.095991479,
-            0.088327607,
-            0.088327607,
-            0.088327607,
-            0.082184923,
-            0.075554375,
-            0.071683935,
-            0.062501146,
-            0.061827714,
-            0.060564505,
-            0.058672084,
-            0.058315984,
-            0.058315984,
-            0.055906198,
-            0.05577595,
-            0.052348443,
-            0.050369583,
-            0.049414297,
-            0.049414297,
-            0.049414297,
-            0.0494142971514545
-            ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Frequent Terms in Fantasy Books'
-            }
-        },
-      scales: {
-        y: {
-          beginAtZero: false
-        }
-      }
-    }
+/* This javascript file retrieves the csv files of frequent terms 
+ * and their relevance value (TF-IDF) per genre
+ * and pass these to the charts
+ * 
+ * NOTE: modify the server link for the files ('http://127.0.0.1:5500') 
+ *       when servers changes
+ */
+
+// FANTASY FREQUENT TERM CHART
+
+const fantasy_canvas = document.getElementById('fantasyChart');
+const fantasyChartData = 'http://127.0.0.1:5500/chart/fantasy-100-tfidf.csv'
+
+d3.csv(fantasyChartData).then(makeChart);
+
+function makeChart(fantasy_tfidf) {
+
+  var fantasy_labels = fantasy_tfidf.map(function(d){
+    return d.index;
+  });
+  var fantasy_books_tfidf = fantasy_tfidf.map(function(d){
+    return d.tfidf;
   });
 
-    
-
-const history = document.getElementById('historyChart');
-      
-        new Chart(history, {
-          type: 'bar',
-          data: {
-            labels: [
-            'confidential',
-            'american',
-            'interrogate',
-            'franklin',
-            'pack',
-            'benjamin',
-            'representative',
-            'atlantic',
-            'tension',
-            'rising',
-            'secretary',
-            'stolen',
-            'colony',
-            'cross',
-            'ordered',
-            'state',
-            'london',
-            'sir',
-            'letter',
-            'john',
-            'one',
-        ],
-            datasets: [{
-              label: '# of Votes',
-              data: [0.329876234,
-                0.295936941,
-                0.28354153,
-                0.253818518,
-                0.253818518,
-                0.243671065,
-                0.243671065,
-                0.227987247,
-                0.224723683,
-                0.218767667,
-                0.216033613,
-                0.210972624,
-                0.210972624,
-                0.191278291,
-                0.188116781,
-                0.154621983,
-                0.153837972,
-                0.148665967,
-                0.143974209,
-                0.142089481,
-                0.083736272,
-                ],
-              borderWidth: 1
-            }]
-          },
-          options: { 
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Frequent Terms in History Books'
-                }
-            },
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
+  var chart = new Chart(fantasy_canvas, {
+    type: 'bar',
+    data: {
+      labels: fantasy_labels,
+      datasets: [
+        {
+          label: 'TF-IDF Value',
+          data: fantasy_books_tfidf,
+          borderWidth: 1
+        }
+      ]
+    }, 
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Frequent Terms in Fantasy Books'
           }
-        });
+      },
+    scales: {
+      y: {
+        beginAtZero: false
+      }
+    }
+  }
+  });
+}
+
+// HISTORY FREQUENT TERM CHART
+
+const history_canvas = document.getElementById('historyChart');
+const historyChartData = 'http://127.0.0.1:5500/chart/history-100-tfidf.csv'
+
+d3.csv(historyChartData).then(makeHistoryChart);
+
+function makeHistoryChart(history_tfidf) {
+
+  var history_labels = history_tfidf.map(function(d){
+    return d.index;
+  });
+  var history_books_tfidf = history_tfidf.map(function(d){
+    return d.tfidf;
+  });
+
+  const config = {
+    type: 'bar',
+    data: {
+      labels: history_labels,
+      datasets: [
+        {
+          label: 'TF-IDF Value',
+          data: history_books_tfidf,
+          borderWidth: 1
+        }
+      ]
+    }, 
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Frequent Terms in History Books'
+          }
+      },
+    scales: {
+      y: {
+        beginAtZero: false
+      }
+    }
+  }
+  };
+  const history_chart = new Chart(
+    document.getElementById('historyChart'),
+    config
+  );
+}
+
+// HORROR FREQUENT TERM CHART
+
+const horror_canvas = document.getElementById('horrorChart');
+const horrorChartData = 'http://127.0.0.1:5500/chart/horror-100-tfidf.csv'
+
+d3.csv(horrorChartData).then(makeHorrorChart);
+
+function makeHorrorChart(horror_tfidf) {
+
+  var horror_labels = horror_tfidf.map(function(d){
+    return d.index;
+  });
+  var horror_books_tfidf = horror_tfidf.map(function(d){
+    return d.tfidf;
+  });
+
+  const config = {
+    type: 'bar',
+    data: {
+      labels: horror_labels,
+      datasets: [
+        {
+          label: 'TF-IDF Value',
+          data: horror_books_tfidf,
+          borderWidth: 1
+        }
+      ]
+    }, 
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Frequent Terms in Horror Books'
+          }
+      },
+    scales: {
+      y: {
+        beginAtZero: false
+      }
+    }
+  }
+  };
+  const horror_chart = new Chart(
+    document.getElementById('horrorChart'),
+    config
+  );
+}
+
+// SCIENCE FREQUENT TERM CHART
+
+const science_canvas = document.getElementById('scienceChart');
+const scienceChartData = 'http://127.0.0.1:5500/chart/science-100-tfidf.csv'
+
+d3.csv(scienceChartData).then(makeScienceChart);
+
+function makeScienceChart(science_tfidf) {
+
+  var science_labels = science_tfidf.map(function(d){
+    return d.index;
+  });
+  var science_books_tfidf = science_tfidf.map(function(d){
+    return d.tfidf;
+  });
+
+  const config = {
+    type: 'bar',
+    data: {
+      labels: science_labels,
+      datasets: [
+        {
+          label: 'TF-IDF Value',
+          data: science_books_tfidf,
+          borderWidth: 1
+        }
+      ]
+    }, 
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Frequent Terms in Science Books'
+          }
+      },
+    scales: {
+      y: {
+        beginAtZero: false
+      }
+    }
+  }
+  };
+  const science_chart = new Chart(
+    document.getElementById('scienceChart'),
+    config
+  );
+}
+
+// THRILLER FREQUENT TERM CHART
+
+const thriller_canvas = document.getElementById('thrillerChart');
+const thrillerChartData = 'http://127.0.0.1:5500/chart/thriller-100-tfidf.csv'
+
+d3.csv(thrillerChartData).then(makeThrillerChart);
+
+function makeThrillerChart(thriller_tfidf) {
+
+  var thriller_labels = thriller_tfidf.map(function(d){
+    return d.index;
+  });
+  var thriller_books_tfidf = thriller_tfidf.map(function(d){
+    return d.tfidf;
+  });
+
+  const config = {
+    type: 'bar',
+    data: {
+      labels: thriller_labels,
+      datasets: [
+        {
+          label: 'TF-IDF Value',
+          data: thriller_books_tfidf,
+          borderWidth: 1
+        }
+      ]
+    }, 
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Frequent Terms in Thriller Books'
+          }
+      },
+    scales: {
+      y: {
+        beginAtZero: false
+      }
+    }
+  }
+  };
+  const thriller_chart = new Chart(
+    document.getElementById('thrillerChart'),
+    config
+  );
+}
+
+
+  
+
+  
