@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="../static/styles.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <title>Alexandria: Analytics</title>
+    </head>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="sidenavbar col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+                <!--Fill content using JQuery-->
+            </div>
+
+            <div class="content col py-3">
+                <div class = "header row p-2 mx-2 mt-4 bg-teal-200">
+                    <p class="m-0"> <a class="text-decoration-none text-dark" href="home.html">Home</a> >> <a class="text-decoration-none text-dark" href="books.html"> Books </a></p>
+                </div>
+                
+                <div class="table row p-2 mr-0">
+                  <table id="tableID" class="display">
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Summary</th>
+                        </tr>
+                    </thead>
+                </div>
+
+              </table>
+
+            </div>
+        </div>
+    </div>
+<script src="../controllers/sidebar.js"></script>
+<script src="../controllers/data_table.js"></script>
+<script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+</html>
