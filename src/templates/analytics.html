@@ -28,6 +28,15 @@
                     <br> Checkout the compiled dataset in Kaggle. Link <a class="text-yellow-400" href="https://www.kaggle.com/datasets/athu1105/tagmybook">here</a>.</p>
                 </div>
                 
+                <div class="row px-2 pt-2">
+                    <div class="d-inline-flex"> 
+                        <iconify-icon icon="mingcute:information-fill" style="color: rgb(77, 59, 240);" width="30"></iconify-icon>
+                        <p class="tf-idf-info px-2">
+                            <strong>TF-IDF</strong> (Term Frequency-Inverse Document Frequency) <strong>values</strong> reflect how important the words are on the collection of documents or dataset.
+                        </p>
+                    </div>
+                </div>
+                <hr class="mt-0">
                 <div class="charts row mb-5">
                     <div class="fantasy-chart col" style="height: 60vh;">
                         <canvas id="fantasyChart"></canvas>
@@ -64,9 +73,10 @@
                 </div>
 
                 <div class="note row">
-                    <div class="note col bg-red-200 rounded-2 mx-5">
-                        <p class="fst-italic fs-6 m-2">
-                           <strong class="fs-5 text-red-600">Note:</strong>  The terms above <strong>may not be a representation for ALL existing fantasy, history, horror, science, and thriller books </strong>. The terms above are JUST the most frequent and relevant terms from the 2500 books included in the dataset. New terms may be added and values of the listed terms' frequency (TF) and relevance (IDF) may change when more data are added.
+                    <div class="note col bg-red-200 rounded-2 mx-5 d-inline-flex">
+                        <iconify-icon icon="openmoji:warning" style="color: #ba0000;" width="90"></iconify-icon>
+                        <p class="fst-italic fs-6 mt-2">
+                            The terms above <strong>may not be a representation for ALL existing fantasy, history, horror, science, and thriller books </strong>. The terms above are JUST the most frequent and relevant terms from the 2500 books included in the dataset. New terms may be added and values of the listed terms' frequency (TF) and relevance (IDF) may change when more data are added.
                         </p>
                     </div>
                 </div>
