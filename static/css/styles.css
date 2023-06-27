@@ -44,7 +44,7 @@
 }
 .nav-link{
     font-weight: 500;
-    color: #187872;
+    color: #187872 !important;
 }
 ul.nav a:hover { color: #6ad7e6 !important; }
 
