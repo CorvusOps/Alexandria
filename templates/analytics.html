@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <title>Alexandria: Analytics</title>
+    </head>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="sidenavbar col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+                <!--Fill content using JQuery-->
+            </div>
+
+            <div class="content col py-3">
+                <div class = "header row p-2 mx-2 mt-4 bg-teal-200">
+                    <p class="m-0"> <a class="text-decoration-none text-dark" href="/">Home</a> >> <a class="text-decoration-none text-dark" href="/analytics"> Analytics </a></p>
+                </div>
+                <div class = "content row px-2 py-3 mx-2 my-1 text-center bg-secondary text-white">
+                    <h3 class="title text-uppercase">Top Terms per Genre</h3>
+                <p class="lead fs-6">
+                    From the analysis of 2500 books which is a subset of dataset compiled by Inamdar of books from GoodReads scraped using Selenium. 
+                    <br> Checkout the compiled dataset in Kaggle. Link <a class="text-yellow-400" href="https://www.kaggle.com/datasets/athu1105/tagmybook">here</a>.</p>
+                </div>
+                
+                <div class="row px-2 pt-2">
+                    <div class="d-inline-flex"> 
+                        <iconify-icon icon="mingcute:information-fill" style="color: rgb(77, 59, 240);" width="30"></iconify-icon>
+                        <p class="tf-idf-info px-2">
+                            <strong>TF-IDF</strong> (Term Frequency-Inverse Document Frequency) <strong>values</strong> reflect how important the words are on the collection of documents or dataset.
+                        </p>
+                    </div>
+                </div>
+                <hr class="mt-0">
+                <div class="charts row mb-5">
+                    <div class="fantasy-chart col" style="height: 60vh;">
+                        <canvas id="fantasyChart"></canvas>
+                        <p class="text-center">Add explanation</p>
+                    </div>
+                </div>
+
+                <div class="charts row">
+                    <div class="history-chart col">
+                        <canvas id="historyChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+                
+                <div class="charts row">
+                    <div class="horror-chart col">
+                        <canvas id="horrorChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+
+                <div class="charts row">
+                    <div class="science-chart col">
+                        <canvas id="scienceChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+
+                <div class="charts row">
+                    <div class="thriller-chart col">
+                        <canvas id="thrillerChart" style="height: 60vh;"></canvas>
+                    </div>
+                    <p class="text-center">Add explanation</p>
+                </div>
+
+                <div class="note row">
+                    <div class="note col bg-red-200 rounded-2 mx-5 d-inline-flex">
+                        <iconify-icon icon="openmoji:warning" style="color: #ba0000;" width="90"></iconify-icon>
+                        <p class="fst-italic fs-6 mt-2">
+                            The terms above <strong>may not be a representation for ALL existing fantasy, history, horror, science, and thriller books </strong>. The terms above are JUST the most frequent and relevant terms from the 2500 books included in the dataset. New terms may be added and values of the listed terms' frequency (TF) and relevance (IDF) may change when more data are added.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{url_for('static', filename='js/sidebar.js')}}"></script>
+<script src="{{url_for('static', filename='js/charts.js')}}"></script>
+<script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+</html>

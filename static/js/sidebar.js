@@ -1,0 +1,3 @@
+$(function(){
+  $(".sidenavbar").load('/sidebar'); 
+  });
