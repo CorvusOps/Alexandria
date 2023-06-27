@@ -9,7 +9,7 @@
 // FANTASY FREQUENT TERM CHART
 
 const fantasy_canvas = document.getElementById('fantasyChart');
-const fantasyChartData = "{{url_for('static', filename='charts/fantasy-100-tfidf.csv')}}"
+const fantasyChartData = "static/charts/fantasy-100-tfidf.csv"
 
 d3.csv(fantasyChartData).then(makeChart);
 
@@ -54,7 +54,7 @@ function makeChart(fantasy_tfidf) {
 // HISTORY FREQUENT TERM CHART
 
 const history_canvas = document.getElementById('historyChart');
-const historyChartData = 'http://127.0.0.1:5500/chart/history-100-tfidf.csv'
+const historyChartData = 'static/charts/history-100-tfidf.csv'
 
 d3.csv(historyChartData).then(makeHistoryChart);
 
@@ -103,7 +103,7 @@ function makeHistoryChart(history_tfidf) {
 // HORROR FREQUENT TERM CHART
 
 const horror_canvas = document.getElementById('horrorChart');
-const horrorChartData = 'http://127.0.0.1:5500/chart/horror-100-tfidf.csv'
+const horrorChartData = 'static/charts/horror-100-tfidf.csv'
 
 d3.csv(horrorChartData).then(makeHorrorChart);
 
@@ -152,7 +152,7 @@ function makeHorrorChart(horror_tfidf) {
 // SCIENCE FREQUENT TERM CHART
 
 const science_canvas = document.getElementById('scienceChart');
-const scienceChartData = 'http://127.0.0.1:5500/chart/science-100-tfidf.csv'
+const scienceChartData = 'static/charts/science-100-tfidf.csv'
 
 d3.csv(scienceChartData).then(makeScienceChart);
 
@@ -201,7 +201,7 @@ function makeScienceChart(science_tfidf) {
 // THRILLER FREQUENT TERM CHART
 
 const thriller_canvas = document.getElementById('thrillerChart');
-const thrillerChartData = 'http://127.0.0.1:5500/chart/thriller-100-tfidf.csv'
+const thrillerChartData = 'static/charts/thriller-100-tfidf.csv'
 
 d3.csv(thrillerChartData).then(makeThrillerChart);
 

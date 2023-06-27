@@ -8,7 +8,7 @@
 
 $(document).ready(function () {
     $('#tableID').dataTable({
-        "ajax": "../../sample-data.json",
+        "ajax": "static/sample-data.json",
         "columns": [
             { 'data': 'index' },
             { 'data': 'title' },
