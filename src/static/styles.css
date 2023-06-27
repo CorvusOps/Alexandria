@@ -49,8 +49,8 @@
 ul.nav a:hover { color: #6ad7e6 !important; }
 
 .book-form{
-    margin-right: 25%;
-    margin-left: 25%;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 @media only screen and ((max-width: 600px) or (max-width: 768px)  or (max-width: 992px))  {
