@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="../static/styles.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <title>Alexandria: Books</title>
+    </head>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="sidenavbar col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+                <!--Fill content using JQuery-->
+            </div>
+
+            <div class="content col py-3">
+                <div class = "header row p-2 mx-2 mt-4 bg-teal-200">
+                    <p class="m-0"> <a class="text-decoration-none text-dark" href="home.html">Home</a> >> <a class="text-decoration-none text-dark" href="books.html"> Books </a> >> Add a Book</p>
+                </div>
+
+                <div class="sub-header row d-flex justify-content-between mx-0 pt-2">
+                    <div class="col text-center">
+                        <h1>Add a Book</h1>
+                    </div>
+                </div>
+
+                <div class="book-form row pt-2">
+                    <form action="#" method="GET" class="">
+                        <label for="img">Choose Book Cover</label><br>
+                        <input type="file" id="img" name="img" accept="image/*">
+
+                        <div class="form-group my-2">
+                            <label for="book-title">Book <Title></Title></label>
+                            <input type="text" class="form-control" id="book-title" placeholder="Enter book title" required>
+                          </div>
+
+                          <div class="form-group my-2">
+                            <label for="book-author">Author</label>
+                            <input type="text" class="form-control" id="book-author" placeholder="Enter book author">
+                          </div>
+
+                          <div class="form-group my-2">
+                            <label for="pub-year">Publication Year</label>
+                            <input type="number" class="form-control" min="1600" max="2023" id="pub-year" placeholder="Enter publication year">
+                          </div>
+
+                          <div class="form-group my-2">
+                            <label for="summary">Book Summary or Description</label>
+                            <input type="text" class="form-control" id="summary" placeholder="Enter book summary" required>
+                          </div>
+
+                          <div class="form-group mt-2 mb-3">
+                            <label for="genre">Book Genre</label>
+                            <input type="text" class="form-control" id="genre" placeholder="Book Genre" required>
+                            <!--The result of the classifier should be displayed after recommended-->
+                            <small class="recommended-genre text-red-600">Recommended:</small>
+                          </div>
+
+                          <div class="d-flex justify-content-center">
+                            <input type="submit" class="add-book-btn text-white rounded-1 px-4 py-1 border shadow-sm" value="Add Book">
+                          </div>
+
+                      </form>
+                </div>
+        </div>
+    </div>
+<script src="../controllers/sidebar.js"></script>
+<script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+</html>

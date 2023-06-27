@@ -20,17 +20,29 @@
                 <div class = "header row p-2 mx-2 mt-4 bg-teal-200">
                     <p class="m-0"> <a class="text-decoration-none text-dark" href="home.html">Home</a> >> <a class="text-decoration-none text-dark" href="genre-checker.html"> Genre Checker</a></p>
                 </div>
-                <div class="content row px-2 py-3 mx-2 mt-1 text-justify bg-blue-100">
-                    <p class="lead fs-6 pt-2">
-                        Insert instruction on the genre checker.
+                <div class="sub-header d-flex justify-content-between mx-2 pt-3 row">
+                    <div class="col">
+                        <h1>Genre Checker</h1>
+                    </div>
+                    <p class="genre-checker-desc fs-6">
+                        The Genre Checker will allow you to identify the genre of books by simply inputting the title and summary of a text, and it will then provide you with the most suitable genre based on the information. 
+                        <br>
+                        <span class="desc">Note: <br>&emsp;&emsp;&emsp;1. The accuracy of the genre checker will vary depending on the quality of provided text. Thus, providing more substantial summary will make the prediction more accurate. <br>&emsp;&emsp;&emsp;2. The checker may occassionaly produce incorrect results.</span>
                     </p>
+                </div>
+                <div class="content row px-2 py-2 mx-2 mt-1 text-justify checker-form">
                     <div class = "content col py-3 mb-1 text-white">
-                        <div class="input-group mb-3">
-                            <textarea class="form-control bg-white px-3" rows="10" placeholder="Enter summary text here" aria-label="summary" aria-describedby="basic-addon1"></textarea>
-                        </div>
-                        <div class="mt-2 mb-3 d-grid justify-content-end">
-                            <button type="btn" class="genre-btn text-white rounded-2 px-3 py-1 border-0 shadow-sm">Check Genre</button>
-                        </div> 
+                        <form action="#" method="GET">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control bg-white px-3" rows="10" placeholder="Enter Book Title here" aria-label="title" aria-describedby="basic-addon1"></textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                                <textarea class="form-control bg-white px-3" rows="10" placeholder="Enter summary text here" aria-label="summary" aria-describedby="basic-addon2" required></textarea>
+                            </div>
+                            <div class="mt-2 mb-0 d-grid justify-content-end">
+                                <input type="submit" class="genre-btn text-white rounded-2 px-3 py-1 border-0 shadow-sm" value="Check Genre">
+                            </div> 
+                        </form>
                     </div>
                 </div>
 

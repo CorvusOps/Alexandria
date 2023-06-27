@@ -22,6 +22,21 @@
                 <div class = "header row p-2 mx-2 mt-4 bg-teal-200">
                     <p class="m-0"> <a class="text-decoration-none text-dark" href="home.html">Home</a> >> <a class="text-decoration-none text-dark" href="books.html"> Books </a></p>
                 </div>
+
+                <div class="sub-header d-flex justify-content-between mx-0 pt-2 row">
+                    <div class="col">
+                        <h1>List of Books</h1>
+                    </div>
+
+                    <div class="col d-flex justify-content-end align-self-center ml-auto">
+                        <button type="button" class="add-book btn btn-primary btn-sm d-inline-flex justify-content-center" href="books.html" style="width: 150px;">
+                            <iconify-icon icon="ic:round-add" style="color: white;" width="30"></iconify-icon>
+                            <span class="align-self-center fs-5">
+                                Add book
+                            </span> 
+                        </button>
+                    </div>
+                </div>
                 
                 <div class="table row p-2 mr-0">
                   <table id="tableID" class="display">
@@ -42,6 +57,7 @@
     </div>
 <script src="../controllers/sidebar.js"></script>
 <script src="../controllers/data_table.js"></script>
+<script src="../controllers/to-add-books.js"></script>
 <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 </html>
