@@ -49,7 +49,7 @@
                     </div>
                 </div>
      
-                <div class="table row p-2 mr-0">
+                <div class="table row p-0 m-0">
 
                   <table id="tableID" class="display">
                     <thead>
@@ -80,16 +80,34 @@
         </div>
     </div>
 <script src="{{url_for('static', filename='js/sidebar.js')}}"></script>
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    <script>
-        alert("Successfully added a new book");
-    </script>
-{% endif %}
+
+<!-- Sets the alert message based on the action/category done -->
+{% with messages = get_flashed_messages(with_categories= true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'add' %}
+            <script>
+                alert("Successfully added a new book!");
+            </script>
+            {% endif %}
+
+            {% if category == 'delete' %}
+            <script>
+                alert("Successfully deleted book!");
+            </script>
+            {% endif %}
+        {% endfor %} 
+    {% endif %}
 {% endwith %}
+
 <script type="text/javascript" language="javascript">
     $(document).ready(function(){
-        var dataTable = $('#tableID').DataTable();
+        var dataTable = $('#tableID').DataTable({
+            "columnDefs": [
+            { "searchable": false, "targets": 4 }
+        ]
+        });
+        
         // $('#sample_data').editable({
         //     container:'body',
         //     selector:'td.name',

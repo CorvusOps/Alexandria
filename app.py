@@ -74,13 +74,13 @@ def sidebar():
 @app.route('/<id>/delete')
 def delete(id):
     records.delete_one({"_id": ObjectId(id)})
+    flash('Successfully deleted a book.', 'delete')
     return redirect(url_for('books'))
 
 @app.route('/books')
 def books():
     all_books = records.find()
     return render_template("books.html", all_books=all_books)
-
 
 @app.route('/analytics')
 def analytics():
@@ -103,7 +103,6 @@ def add_books():
     pub_year = request.form.get("pub-year")
     summary = request.form.get("summary")
     genre = request.form.get("genre")
-    
 
     books["title"] = book_title
     books["book_author"] = book_author
@@ -114,7 +113,7 @@ def add_books():
     pprint(books)
     records.insert_one(books)
 
-    flash('You successfully added a new book')
+    flash('You successfully added a new book!', 'add')
 
     return redirect(url_for('books'))
 
@@ -122,10 +121,11 @@ def add_books():
 def predict():
     summary = request.args.get('summary')
     if request.method == 'POST':
-
         summary = request.get_data()
-    # print(data)
+    
+    # pass to the preprocessing and classification method
     prediction_output = classification_process(summary, load_vectorizer, svm_model)
+    
     if prediction_output == 0:
         pred_label = 'Fantasy'
     elif prediction_output == 1:
@@ -136,7 +136,7 @@ def predict():
         pred_label = 'Science'
     elif prediction_output == 4:
         pred_label = 'Thriller'
-        
+    
     return pred_label
 
 if __name__ == '__main__':

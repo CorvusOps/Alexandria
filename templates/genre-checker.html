@@ -32,6 +32,12 @@
                 </div>
                 <div class="content row px-2 py-2 mx-2 mt-1 text-justify checker-form">
                     <div class = "content col py-3 mb-1 text-white">
+
+                    <div id="placeholder" class="alert alert-warning alert-dismissible fade show d-none text-center" role="alert">
+                        Predicted Genre: <strong><span id="pred-output">{{prediction_value}}</span></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
                         <form name="genre-checker-form">
                             <div class="input-group mb-2">
                                 <input type="text" name="title" class="form-control bg-white px-3" rows="10" placeholder="Enter Book Title here" aria-label="title" aria-describedby="basic-addon1"></textarea>
@@ -39,17 +45,27 @@
                             <div class="input-group mb-3">
                                 <textarea id="summary" name="summary"class="form-control bg-white px-3" rows="10" placeholder="Enter summary text here" aria-label="summary" aria-describedby="basic-addon2" required></textarea>
                             </div>
-                            <p class="fs-6 text-red-500">Predicted Genre: <strong><span id="pred-output">{{prediction_value}}</span></strong></p>
                             <div class="mt-2 mb-0 d-grid justify-content-end">
-                                <input type="submit" class="genre-btn text-white rounded-2 px-3 py-1 border-0 shadow-sm" value="Check Genre">
+                                <input type="submit" class="genre-btn text-white rounded-2 px-3 py-1 border-0 shadow-sm" value="Check Genre" onclick="show()">
                             </div> 
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+    <script>
+        function show(){
+            $("#placeholder").removeClass('d-none');
+        }
+    </script>
+    <script type = "text/javascript">
+        $(function(){
+           $(".btn-close").click(function(){
+            $("#placeholder").addClass('d-none');
+           });
+        });  
+     </script>   
 <script src="{{url_for('static', filename='js/sidebar.js')}}"></script>
 <script src="{{url_for('static', filename='js/get-form-values.js')}}"></script>
 <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
