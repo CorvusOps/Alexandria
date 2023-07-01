@@ -23,6 +23,17 @@
                     <p class="m-0"> <a class="text-decoration-none text-dark" href="/">Home</a> >> <a class="text-decoration-none text-dark" href="/books"> Books </a></p>
                 </div>
 
+                <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>   
+                {% endfor %}
+                {% endif %}
+                {% endwith %} -->
+
                 <div class="sub-header d-flex justify-content-between mx-0 pt-2 row">
                     <div class="col">
                         <h1>List of Books</h1>
@@ -37,24 +48,100 @@
                         </a>
                     </div>
                 </div>
-                
+     
                 <div class="table row p-2 mr-0">
+
                   <table id="tableID" class="display">
                     <thead>
                         <tr>
-                            <th>Index</th>
                             <th>Title</th>
+                            <th>Author</th>
+                            <th>Pub Year</th>
                             <th>Genre</th>
                             <th>Summary</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {% for record in all_books %}
+                        <tr>
+                            <td>{{record.title}}</td>
+                            <td>{{record.book_author}}</td>
+                            <td>{{record.pub_year}}</td>
+                            <td>{{record.genre}}</td>
+                            <td>{{record.summary}}</td>
+                            <td><a href="javascript:del('{{record._id}}','{{record.title}}')" class="btn btn-primary">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </div>
               </table>
             </div>
         </div>
     </div>
 <script src="{{url_for('static', filename='js/sidebar.js')}}"></script>
-<script src="{{url_for('static', filename='js/data_table.js')}}"></script>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <script>
+        alert("Successfully added a new book");
+    </script>
+{% endif %}
+{% endwith %}
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){
+        var dataTable = $('#tableID').DataTable();
+        // $('#sample_data').editable({
+        //     container:'body',
+        //     selector:'td.name',
+        //     url:'/updateemployee',
+        //     title:'Name',
+        //     type:'POST',
+        //     validate:function(value){
+        //         if($.trim(value) == '')
+        //         {
+        //             return 'This field is required';
+        //         }
+        //     }
+        // });
+    });
+     
+    //     $('#sample_data').editable({
+    //         container:'body',
+    //         selector:'td.email',
+    //         url:'/updateemployee',
+    //         title:'Email',
+    //         type:'POST',
+    //         validate:function(value){
+    //             if($.trim(value) == '')
+    //             {
+    //                 return 'This field is required';
+    //             }
+    //         }
+    //     });
+     
+    //     $('#sample_data').editable({
+    //         container:'body',
+    //         selector:'td.phone',
+    //         url:'/updateemployee',
+    //         title:'Phone',
+    //         type:'POST',
+    //         validate:function(value){
+    //             if($.trim(value) == '')
+    //             {
+    //                 return 'This field is required';
+    //             }
+    //         }
+    //     });
+    // }); 
+    function del(id , title){
+        //var replace = title.replaceAll("'", " ")
+        if (confirm("Are you sure you want to delete '" + title  + "'")){
+            window.location.href = '/'+id+'/delete';
+            // " url_for('delete', id=all_books['_id']) "
+        }};
+    // }
+</script>
+<!-- <script src="{{url_for('static', filename='js/data_table.js')}}"></script> -->
 <script src="{{url_for('static', filename='js/to-add-books.js')}}"></script>
 <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
