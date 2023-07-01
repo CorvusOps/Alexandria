@@ -11,7 +11,8 @@
         <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
         <title>Alexandria: Books</title>
     </head>
-
+    
+    
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <div class="sidenavbar col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -28,35 +29,35 @@
                         <h1>Add a Book</h1>
                     </div>
                 </div>
-
+                {% block main %}
                 <div class="book-form row pt-2">
-                    <form action="#" method="GET" class="">
+                    <form action="/add-books" method="post">
                         <label for="img">Choose Book Cover</label><br>
                         <input type="file" id="img" name="img" accept="image/*">
 
                         <div class="form-group my-2">
                             <label for="book-title">Book <Title></Title></label>
-                            <input type="text" class="form-control bg-white border-secondary" id="book-title" placeholder="Enter book title" required>
+                            <input type="text" class="form-control bg-white border-secondary" name="book-title" id="book-title" placeholder="Enter book title" required>
                           </div>
 
                           <div class="form-group my-2">
                             <label for="book-author">Author</label>
-                            <input type="text" class="form-control bg-white border-secondary" id="book-author" placeholder="Enter book author">
+                            <input type="text" class="form-control bg-white border-secondary" name="book-author" id="book-author" placeholder="Enter book author">
                           </div>
 
                           <div class="form-group my-2">
                             <label for="pub-year">Publication Year</label>
-                            <input type="number" class="form-control bg-white border-secondary" min="1600" max="2023" id="pub-year" placeholder="Enter publication year">
+                            <input type="number" class="form-control bg-white border-secondary" min="1600" max="2023" name="pub-year" id="pub-year" placeholder="Enter publication year">
                           </div>
 
                           <div class="form-group my-2">
                             <label for="summary">Book Summary or Description</label>
-                            <textarea id="summary" type="text" rows="10" class="summary form-control bg-white border-secondary" placeholder="Book summary or description" required></textarea>
+                            <textarea name="summary" id="summary" type="text" rows="10" class="summary form-control bg-white border-secondary" placeholder="Book summary or description" required></textarea>
                           </div>
 
                           <div class="form-group mt-2 mb-3">
                             <label for="genre">Book Genre</label>
-                            <input type="text" class="form-control bg-white border-secondary" id="genre" placeholder="Book Genre" required>
+                            <input type="text" class="form-control bg-white border-secondary" name="genre"  id="genre" placeholder="Book Genre" required>
                             <!--The result of the classifier should be displayed after recommended-->
                             <small class="recommended-genre text-red-600">Recommended: <strong><span id="pred-output">{{prediction_value}}</span></strong></small>
                           </div>
@@ -67,6 +68,7 @@
 
                       </form>
                 </div>
+                {% endblock %}
         </div>
     </div>
 <script src="{{url_for('static', filename='js/sidebar.js')}}"></script>

@@ -65,46 +65,20 @@
                   Alexandria contains a library of books with different genres that you can ever ask for. Find the perfect book to read and even have the analytics of the available books. Find out the genre of a story by simply providing the summary.</p>
                 </div>
 
-                <div class = "content-cards row px-2 py-3 mx-2 my-1">
-        
-                  <div class = "col-sm-4">
-                    <div class="card m-2 px-1" style="width: 18rem;">
+                <div class = "content-cards row py-3">
+                  {% for record in some_books %}
+                  <div class = "col pb-3 d-flex justify-content-center">
+                    <div class="card h-100 m-0 text-wrap" style="width: 18rem;">
                       <img class="card-img-top" src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h6 class="card-subtitle mb-2 text-muted">Book Genre</h6>
-                          <h5 class="card-title">Book Title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Author Name</h6>
-                          <p class="card-text">Just some description about the summary of the book. Similar to a synopsis or summary but shorter or cutoff like so . . .</p>
-                          <a href="#" class="btn btn-primary">Read Book</a>
+                        <div class="card-body pd-5">
+                          <h6 class="card-subtitle mb-2 text-muted">{{record.genre}}</h6>
+                          <h5 class="card-title">{{record.title}}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">{{record.book_author}}</h6>
+                          <p class="card-text text-truncate">{{record.summary}}</p>
                         </div>
                     </div>
                   </div>
-
-                  <div class = "col-sm-4">
-                    <div class="card m-2 px-1" style="width: 18rem;">
-                      <img class="card-img-top" src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h6 class="card-subtitle mb-2 text-muted">Book Genre</h6>
-                          <h5 class="card-title">Book Title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Author Name</h6>
-                          <p class="card-text">Just some description about the summary of the book. Similar to a synopsis or summary but shorter or cutoff like so . . .</p>
-                          <a href="#" class="btn btn-primary">Read Book</a>
-                        </div>
-                    </div>
-                  </div>
-
-                  <div class = "col-sm-4">
-                    <div class="card m-2 px-1" style="width: 18rem;">
-                      <img class="card-img-top" src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h6 class="card-subtitle mb-2 text-muted">Book Genre</h6>
-                          <h5 class="card-title">Book Title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Author Name</h6>
-                          <p class="card-text">Just some description about the summary of the book. Similar to a synopsis or summary but shorter or cutoff like so . . .</p>
-                          <a href="#" class="btn btn-primary">Read Book</a>
-                        </div>
-                    </div>
-                  </div>
+                  {% endfor %}
                 </div>
         </div>
     </div>
