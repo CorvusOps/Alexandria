@@ -31,7 +31,7 @@
                 </div>
                 {% block main %}
                 <div class="book-form row pt-2">
-                    <form action="/add-books" method="post">
+                    <form action="/add-books" method="post" enctype="multipart/form-data">
                         <label for="img">Choose Book Cover</label><br>
                         <input type="file" id="img" name="img" accept="image/*">
 

@@ -1,9 +1,22 @@
+import codecs
 import os, pickle
+import io
+import matplotlib.pyplot as plt
 from ssl import AlertDescription
+import gridfs
 
 from bson.objectid import ObjectId
 
 # from flask_pymongo import PyMongo
+
+# import cloudinary
+# from cloudinary import uploader
+# import config
+
+from werkzeug.utils import secure_filename
+from bson.binary import Binary
+
+from PIL import Image
 
 from pprint import pprint
 
@@ -32,6 +45,7 @@ uri = "mongodb://localhost:27017"
 client = MongoClient(uri)
 db = client['lms-dev']
 records = db.books
+grid_fs = gridfs.GridFS(db)
 
 ## This is for ensuring the connection of the database
 # # List all the databases in the cluster:
@@ -63,9 +77,37 @@ svm_model = pickle.load(open('models/svm-76-accuracy.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    some_books = records.aggregate([{"$sample":{"size":6}}])
+    pipeline = [
+        {"$sample":{"size":6}}
+    ]
+    # some_book_with_image = records.distinct("img")
+    # pprint(some_book_with_image)
+    # pil_img = Image.open(io.BytesIO(some_book_with_image["img"]))
+    # plt.imshow(pil_img)
+    # plt.show()
+    #pil_image = Image.open(io.BytesIO(some_book_with_image))
+    #fp.seek(0)
+    ##pic = url_for('img', img = some_book_with_image['img'])
+    ##some_book_with_image['img'] = pic
 
-    return render_template("home.html", some_books = some_books)
+    items = records.find().limit(3)
+    images= []
+    for item in items:
+        image = grid_fs.get(item['id'])
+        base64_data = codecs.encode(image.read(), 'base64')
+        image = base64_data.decode('utf-8')
+        images.append({
+            "image" : image 
+            })
+    pprint(images)
+
+    # image = grid_fs.get(item['id'])
+    # base64_data = codecs.encode(image.read(), 'base64')
+    # image = base64_data.decode('utf-8')
+
+    some_books = records.aggregate(pipeline)
+
+    return render_template("home.html", some_books = some_books, images=images)
 
 @app.route('/sidebar')
 def sidebar():
@@ -98,12 +140,28 @@ def add_books():
     
     books = {}
 
+    # should not exeed 16mb
+    book_image = request.files['img']
+    
+    # name = book_image.filename
+    # name = name.replace(" ", "")
+    # book_image.save(secure_filename(name))
+
+    # with open(name, "rb") as hoja:
+    #     encoded = Binary(hoja.read())
+
+    # imgByteArr = io.BytesIO()
+    # book_image.save(imgByteArr)
+
     book_title = request.form.get("book-title")
     book_author = request.form.get("book-author")
     pub_year = request.form.get("pub-year")
     summary = request.form.get("summary")
     genre = request.form.get("genre")
+    id = grid_fs.put(book_image, content_type = book_image.content_type, 
+                     filename = book_title)
 
+    books["id"] = id #encoded #imgByteArr.getvalue()
     books["title"] = book_title
     books["book_author"] = book_author
     books["pub_year"] = pub_year
