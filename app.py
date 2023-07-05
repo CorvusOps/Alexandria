@@ -99,7 +99,6 @@ def home():
         images.append({
             "image" : image 
             })
-    pprint(images)
 
     # image = grid_fs.get(item['id'])
     # base64_data = codecs.encode(image.read(), 'base64')
